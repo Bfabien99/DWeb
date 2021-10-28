@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--link rel="stylesheet" href="style.css"-->
+    <style>
+        #title{
+            font-size: 3vmin;
+            width: 200px;
+        }
+        .table{
+            display: flex;
+            flex-wrap: wrap;
+        }
+    </style>
+    <title>List Users</title>
+</head>
+
+<body>
+    <div class="list-users">
+        <h3 >liste d'inscrit</h3>
+        <table class="table">
+            
+        </table>
+    </div>
+
+    
+    <!--  Code Javascript  -->
+    <script>
+         setInterval(function () {
+             document.location.reload();
+         },2500);
+//         function allStorage() {
+//             let key;
+//     for (var i = 0; i < localStorage.length; i++) {
+        
+//          key = localStorage.getItem(localStorage.key(i));
+        
+// }
+
+// return key;
+// }
+    let title = document.querySelector('.table')
+    let show = localStorage.getItem("user");
+        //alert(`${show}`);
+    JSON.parse(show).forEach(data => {
+        title.innerHTML += `
+                    <td class="info">
+                        ${data.nom}
+                        <br>
+                        ${data.contact}
+                        <br>
+                        <span>${data.email}</span>
+                    </td>
+                    `
+    })
+    </script>
+</body>
+</html>
